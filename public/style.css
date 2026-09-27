@@ -1,0 +1,573 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding-bottom: 40px;
+}
+
+
+/* =========================================================
+   JUDUL
+========================================================= */
+
+h1 {
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   TOMBOL TAMBAH
+========================================================= */
+
+.btn-add {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-add:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.search-form input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.search-form button:hover {
+    background: #1d4ed8;
+}
+
+.btn-reset {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-reset:hover {
+    background: #4b5563;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background: #f8fafc;
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   TOMBOL EDIT
+========================================================= */
+
+.btn-edit {
+    display: inline-block;
+    padding: 7px 10px;
+    background: #16a34a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.btn-edit:hover {
+    background: #15803d;
+}
+
+
+/* =========================================================
+   TOMBOL HAPUS
+========================================================= */
+
+.btn-delete {
+    display: inline-block;
+    padding: 7px 10px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================================================
+   FORM HAPUS
+========================================================= */
+
+.delete-form {
+    display: inline;
+    margin: 0;
+}
+
+
+/* =========================================================
+   DATA KOSONG
+========================================================= */
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+
+/* =========================================================
+   FORM TAMBAH / EDIT
+========================================================= */
+
+.product-form {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   FORM ACTION
+========================================================= */
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #4b5563;
+}
+
+
+/* =========================================================
+   PESAN ERROR
+========================================================= */
+
+.error-box {
+    max-width: 600px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fee2e2;
+    color: #991b1b;
+    border-radius: 6px;
+}
+
+.error-box p {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLE
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+
+    /* TOP BAR */
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .top-bar .btn-add {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* SEARCH */
+
+    .search-form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+
+    .search-form button,
+    .btn-reset {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* TABLE */
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    th,
+    td {
+        padding: 11px;
+        font-size: 14px;
+    }
+
+
+    /* FORM */
+
+    .product-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn-add,
+    .form-actions .btn-cancel,
+    .form-actions button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   MOBILE CARD
+   HP
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+
+    /* TABLE CONTAINER */
+
+    .table-container {
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+
+    /* UBAH TABLE MENJADI CARD */
+
+    table,
+    thead,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+
+    /* HILANGKAN HEADER TABLE */
+
+    thead {
+        display: none;
+    }
+
+
+    /* CARD PRODUK */
+
+    tbody tr {
+        background: white;
+        margin-bottom: 18px;
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* ISI CARD */
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid #eee;
+
+        white-space: normal;
+        text-align: right;
+    }
+
+
+    tbody td:last-child {
+        border-bottom: none;
+    }
+
+
+    /* LABEL CARD */
+
+    tbody td::before {
+        content: attr(data-label);
+
+        font-weight: bold;
+        color: #555;
+
+        text-align: left;
+
+        flex-shrink: 0;
+    }
+
+
+    /* BAGIAN AKSI */
+
+    .action-cell {
+        justify-content: flex-end;
+        gap: 8px;
+        padding-top: 15px;
+    }
+
+
+    .action-cell::before {
+        display: none;
+    }
+
+
+    .delete-form {
+        display: inline;
+    }
+
+
+    .btn-edit,
+    .btn-delete {
+        padding: 8px 12px;
+    }
+
+
+    /* FORM */
+
+    .product-form {
+        padding: 18px;
+    }
+
+    .form-group input {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn-add,
+    .form-actions .btn-cancel,
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   HP SANGAT KECIL
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: 92%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    tbody tr {
+        padding: 14px;
+    }
+
+    tbody td {
+        font-size: 14px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+}
+
