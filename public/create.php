@@ -12,24 +12,40 @@ $category = "";
 $price = "";
 $stock = "";
 
+
+/*
+|--------------------------------------------------------------------------
+| PROSES FORM
+|--------------------------------------------------------------------------
+*/
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Ambil CSRF token
+    // =========================
+    // CEK CSRF
+    // =========================
+
     $token = $_POST["csrf_token"] ?? "";
 
     if (!verify_csrf_token($token)) {
         $errors[] = "CSRF token tidak valid.";
     }
 
-    // Ambil data form
+
+    // =========================
+    // AMBIL DATA FORM
+    // =========================
+
     $name = trim($_POST["name"] ?? "");
     $category = trim($_POST["category"] ?? "");
     $price = trim($_POST["price"] ?? "");
     $stock = trim($_POST["stock"] ?? "");
 
+
     // =========================
     // VALIDASI NAMA
     // =========================
+
     if ($name === "") {
 
         $errors[] = "Nama produk wajib diisi.";
@@ -39,17 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Nama produk minimal 3 karakter.";
     }
 
+
     // =========================
     // VALIDASI KATEGORI
     // =========================
+
     if ($category === "") {
 
         $errors[] = "Kategori wajib diisi.";
     }
 
+
     // =========================
     // VALIDASI HARGA
+    // Ketentuan dosen: harga > 0
     // =========================
+
     if ($price === "") {
 
         $errors[] = "Harga wajib diisi.";
@@ -58,14 +79,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $errors[] = "Harga harus berupa angka.";
 
-    } elseif ($price < 0) {
+    } elseif ($price <= 0) {
 
-        $errors[] = "Harga tidak boleh negatif.";
+        $errors[] = "Harga harus lebih dari 0.";
     }
+
 
     // =========================
     // VALIDASI STOK
+    // Ketentuan dosen: stok >= 0
     // =========================
+
     if ($stock === "") {
 
         $errors[] = "Stok wajib diisi.";
@@ -81,13 +105,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Stok tidak boleh negatif.";
     }
 
+
     // =========================
     // CEK NAMA DUPLIKAT
     // =========================
+
     if (empty($errors)) {
 
         $stmt = $pdo->prepare(
-            "SELECT id FROM products WHERE name = ?"
+            "SELECT id
+             FROM products
+             WHERE name = ?"
         );
 
         $stmt->execute([$name]);
@@ -98,14 +126,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+
     // =========================
     // SIMPAN PRODUK
     // =========================
+
     if (empty($errors)) {
 
         $stmt = $pdo->prepare(
-            "INSERT INTO products (name, category, price, stock)
-             VALUES (?, ?, ?, ?)"
+            "INSERT INTO products
+            (name, category, price, stock)
+            VALUES (?, ?, ?, ?)"
         );
 
         $stmt->execute([
@@ -115,7 +146,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stock
         ]);
 
+
+        // =========================
+        // PRG
         // Redirect setelah berhasil
+        // =========================
+
         header("Location: index.php");
         exit;
     }
@@ -147,6 +183,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <h1>Tambah Produk</h1>
 
+
+    <!-- =========================
+         PESAN ERROR
+    ========================== -->
+
     <?php if (!empty($errors)): ?>
 
         <div class="error-box">
@@ -164,7 +205,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
 
-    <form method="POST" class="product-form">
+    <!-- =========================
+         FORM PRODUK
+    ========================== -->
+
+    <form
+        method="POST"
+        class="product-form"
+    >
+
+        <!-- CSRF TOKEN -->
 
         <input
             type="hidden"
@@ -172,6 +222,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             value="<?= htmlspecialchars($csrfToken) ?>"
         >
 
+
+        <!-- =========================
+             NAMA PRODUK
+        ========================== -->
 
         <div class="form-group">
 
@@ -190,6 +244,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
 
+        <!-- =========================
+             KATEGORI
+        ========================== -->
+
         <div class="form-group">
 
             <label for="category">
@@ -207,6 +265,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
 
+        <!-- =========================
+             HARGA
+        ========================== -->
+
         <div class="form-group">
 
             <label for="price">
@@ -218,12 +280,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 id="price"
                 name="price"
                 value="<?= htmlspecialchars($price) ?>"
-                min="0"
+                min="1"
+                step="0.01"
                 placeholder="Masukkan harga"
             >
 
         </div>
 
+
+        <!-- =========================
+             STOK
+        ========================== -->
 
         <div class="form-group">
 
@@ -237,11 +304,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 name="stock"
                 value="<?= htmlspecialchars($stock) ?>"
                 min="0"
+                step="1"
                 placeholder="Masukkan stok"
             >
 
         </div>
 
+
+        <!-- =========================
+             TOMBOL
+        ========================== -->
 
         <div class="form-actions">
 
@@ -251,6 +323,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             >
                 Simpan Produk
             </button>
+
 
             <a
                 href="index.php"

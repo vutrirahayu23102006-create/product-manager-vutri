@@ -3,9 +3,9 @@
 ========================================================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 
@@ -14,10 +14,18 @@
 ========================================================= */
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef6ff 0%,
+            #f7fbff 50%,
+            #eefaf9 100%
+        );
+
+    color: #1f2937;
 }
 
 
@@ -27,55 +35,128 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding-bottom: 40px;
+    max-width: 1150px;
+
+    margin: 35px auto 60px;
 }
 
 
 /* =========================================================
-   JUDUL
+   HEADER
 ========================================================= */
 
-h1 {
-    margin-bottom: 25px;
-    color: #222;
-    font-size: 32px;
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.top-bar {
+.header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 32px 34px;
+
+    margin-bottom: 28px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1e3a8a 0%,
+            #2563eb 55%,
+            #0891b2 100%
+        );
+
+    box-shadow:
+        0 12px 28px rgba(30, 58, 138, 0.20);
 }
 
 
 /* =========================================================
-   TOMBOL TAMBAH
+   HEADER TEXT
 ========================================================= */
 
-.btn-add {
-    display: inline-block;
-    padding: 10px 16px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s ease;
+.header-text h1 {
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    line-height: 1.2;
 }
 
-.btn-add:hover {
-    background: #1d4ed8;
+.header-text p {
+    color: #dbeafe;
+
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTON TAMBAH
+========================================================= */
+
+.btn-tambah {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    background: #ffffff;
+    color: #1e3a8a;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+.btn-tambah:hover {
+    background: #eff6ff;
+
     transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe7f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 24px rgba(30, 64, 175, 0.08);
+}
+
+
+/* =========================================================
+   JUDUL DAFTAR
+========================================================= */
+
+.content h2 {
+    margin-bottom: 20px;
+
+    color: #1e3a8a;
+
+    font-size: 25px;
+    font-weight: 700;
 }
 
 
@@ -85,49 +166,117 @@ h1 {
 
 .search-form {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
 }
 
 .search-form input {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    flex: 1;
+
+    height: 46px;
+
+    padding: 0 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
     font-size: 14px;
+}
+
+.search-form input::placeholder {
+    color: #94a3b8;
 }
 
 .search-form input:focus {
     outline: none;
+
     border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
 }
 
+
 .search-form button {
-    padding: 10px 15px;
+    height: 46px;
+
+    padding: 0 20px;
+
     border: none;
-    border-radius: 6px;
+
+    border-radius: 9px;
+
     background: #2563eb;
-    color: white;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
     cursor: pointer;
-    transition: 0.2s ease;
+
+    transition: all 0.2s ease;
 }
 
 .search-form button:hover {
     background: #1d4ed8;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 .btn-reset {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #6b7280;
-    color: white;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 46px;
+
+    padding: 0 18px;
+
+    border-radius: 9px;
+
+    background: #e0f2fe;
+    color: #0369a1;
+
     text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s ease;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
 }
 
 .btn-reset:hover {
-    background: #4b5563;
+    background: #bae6fd;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid #dbe5ed;
+
+    border-radius: 14px;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -135,97 +284,187 @@ h1 {
    TABLE
 ========================================================= */
 
-.table-container {
-    width: 100%;
-    background: white;
-    border-radius: 8px;
-    overflow-x: auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    -webkit-overflow-scrolling: touch;
-}
-
 table {
     width: 100%;
+
+    min-width: 950px;
+
     border-collapse: collapse;
 }
 
-th,
-td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+thead th {
+    padding: 16px 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1e3a8a,
+            #2563eb
+        );
+
+    color: #ffffff;
+
     text-align: left;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* Sudut header */
+
+thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+tbody td {
+    padding: 18px 17px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e8eef4;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background: #f8fbff;
+}
+
+
+/* =========================================================
+   NAMA PRODUK
+========================================================= */
+
+.nama-produk {
+    color: #1e293b;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   AKSI
+========================================================= */
+
+.aksi {
     white-space: nowrap;
 }
 
-th {
-    background: #f8fafc;
-    font-weight: 700;
-}
-
-tbody tr:hover {
-    background: #f8fafc;
-}
-
 
 /* =========================================================
-   TOMBOL EDIT
+   EDIT
 ========================================================= */
 
 .btn-edit {
-    display: inline-block;
-    padding: 7px 10px;
-    background: #16a34a;
-    color: white;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 14px;
+
+    margin-right: 6px;
+
+    background: #fff7ed;
+    color: #ea580c;
+
+    border-radius: 8px;
+
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.2s ease;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: all 0.2s ease;
 }
 
 .btn-edit:hover {
-    background: #15803d;
+    background: #ffedd5;
 }
 
 
 /* =========================================================
-   TOMBOL HAPUS
+   DELETE
 ========================================================= */
 
 .btn-delete {
-    display: inline-block;
-    padding: 7px 10px;
-    background: #dc2626;
-    color: white;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 14px;
+
+    background: #fef2f2;
+    color: #dc2626;
+
     border: none;
-    border-radius: 5px;
-    font-size: 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
     cursor: pointer;
-    transition: 0.2s ease;
+
+    transition: all 0.2s ease;
 }
 
 .btn-delete:hover {
-    background: #b91c1c;
+    background: #fee2e2;
 }
 
 
 /* =========================================================
-   FORM HAPUS
+   DELETE FORM
 ========================================================= */
 
 .delete-form {
     display: inline;
+
     margin: 0;
 }
 
 
 /* =========================================================
-   DATA KOSONG
+   EMPTY
 ========================================================= */
 
 .empty {
+    padding: 40px;
+
     text-align: center;
-    padding: 30px;
-    color: #777;
+
+    color: #64748b;
+
+    font-size: 14px;
 }
 
 
@@ -236,35 +475,64 @@ tbody tr:hover {
 .product-form {
     width: 100%;
     max-width: 600px;
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe5ed;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 7px 22px rgba(30, 64, 175, 0.08);
 }
 
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 19px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 7px;
-    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #1e293b;
+
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .form-group input {
     width: 100%;
-    padding: 11px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 15px;
-    transition: 0.2s ease;
+
+    height: 45px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-size: 14px;
 }
 
 .form-group input:focus {
     outline: none;
+
     border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
 }
 
 
@@ -274,41 +542,87 @@ tbody tr:hover {
 
 .form-actions {
     display: flex;
+
     gap: 10px;
-    margin-top: 20px;
-}
 
-.form-actions button {
-    border: none;
-    cursor: pointer;
-}
-
-.btn-cancel {
-    display: inline-block;
-    padding: 10px 16px;
-    background: #6b7280;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s ease;
-}
-
-.btn-cancel:hover {
-    background: #4b5563;
+    margin-top: 22px;
 }
 
 
 /* =========================================================
-   PESAN ERROR
+   BUTTON SIMPAN DALAM FORM
+========================================================= */
+
+.form-actions .btn-add {
+    padding: 11px 18px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.form-actions .btn-add:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   BATAL
+========================================================= */
+
+.btn-cancel {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 17px;
+
+    background: #64748b;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #475569;
+}
+
+
+/* =========================================================
+   ERROR
 ========================================================= */
 
 .error-box {
+    width: 100%;
     max-width: 600px;
+
     margin-bottom: 20px;
-    padding: 15px;
-    background: #fee2e2;
-    color: #991b1b;
-    border-radius: 6px;
+
+    padding: 15px 18px;
+
+    background: #fff1f2;
+
+    border: 1px solid #fecdd3;
+
+    border-radius: 9px;
+
+    color: #9f1239;
 }
 
 .error-box p {
@@ -317,76 +631,172 @@ tbody tr:hover {
 
 
 /* =========================================================
-   RESPONSIVE TABLE
    TABLET
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 
     .container {
         width: 94%;
-        margin: 25px auto;
     }
 
-    h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
+    .header {
+        padding: 27px;
+    }
+
+    .content {
+        padding: 24px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+
+        margin-top: 20px;
     }
 
 
-    /* TOP BAR */
+    /* HEADER */
 
-    .top-bar {
+    .header {
         flex-direction: column;
-        align-items: stretch;
+
+        align-items: flex-start;
+
+        padding: 24px;
+
+        border-radius: 16px;
     }
 
-    .top-bar .btn-add {
+    .header-text h1 {
+        font-size: 29px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .btn-tambah {
         width: 100%;
-        text-align: center;
+    }
+
+
+    /* CONTENT */
+
+    .content {
+        padding: 20px 16px;
+
+        border-radius: 16px;
+    }
+
+    .content h2 {
+        font-size: 22px;
     }
 
 
     /* SEARCH */
 
     .search-form {
-        width: 100%;
         flex-direction: column;
+
+        align-items: stretch;
     }
 
-    .search-form input {
-        width: 100%;
-    }
-
+    .search-form input,
     .search-form button,
     .btn-reset {
         width: 100%;
-        text-align: center;
     }
 
 
-    /* TABLE */
+    /* TABLE -> CARD */
 
-    .table-container {
-        overflow-x: auto;
+    .table-wrapper {
+        overflow: visible;
+
+        border: none;
     }
 
-    table {
-        min-width: 700px;
-    }
-
-    th,
+    table,
+    thead,
+    tbody,
+    tr,
     td {
-        padding: 11px;
-        font-size: 14px;
+        display: block;
+
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 16px;
+
+        padding: 16px;
+
+        background: #ffffff;
+
+        border: 1px solid #dbe5ed;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 4px 12px rgba(30, 64, 175, 0.07);
+    }
+
+    tbody td {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid #edf2f7;
+
+        text-align: right;
+    }
+
+    tbody td:last-child {
+        border-bottom: none;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+
+        color: #1e3a8a;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        text-align: left;
+    }
+
+    .aksi {
+        justify-content: flex-end;
+
+        padding-top: 15px;
+    }
+
+    .aksi::before {
+        display: none;
     }
 
 
     /* FORM */
 
     .product-form {
-        width: 100%;
-        max-width: 100%;
         padding: 20px;
     }
 
@@ -395,155 +805,14 @@ tbody tr:hover {
     }
 
     .form-actions .btn-add,
-    .form-actions .btn-cancel,
-    .form-actions button {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-
-/* =========================================================
-   MOBILE CARD
-   HP
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .container {
-        width: 94%;
-        margin: 20px auto;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-
-    /* TABLE CONTAINER */
-
-    .table-container {
-        background: transparent;
-        box-shadow: none;
-        overflow: visible;
-    }
-
-
-    /* UBAH TABLE MENJADI CARD */
-
-    table,
-    thead,
-    tbody,
-    tr,
-    td {
-        display: block;
-        width: 100%;
-    }
-
-
-    /* HILANGKAN HEADER TABLE */
-
-    thead {
-        display: none;
-    }
-
-
-    /* CARD PRODUK */
-
-    tbody tr {
-        background: white;
-        margin-bottom: 18px;
-        padding: 16px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-
-    /* ISI CARD */
-
-    tbody td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-
-        padding: 10px 0;
-
-        border-bottom: 1px solid #eee;
-
-        white-space: normal;
-        text-align: right;
-    }
-
-
-    tbody td:last-child {
-        border-bottom: none;
-    }
-
-
-    /* LABEL CARD */
-
-    tbody td::before {
-        content: attr(data-label);
-
-        font-weight: bold;
-        color: #555;
-
-        text-align: left;
-
-        flex-shrink: 0;
-    }
-
-
-    /* BAGIAN AKSI */
-
-    .action-cell {
-        justify-content: flex-end;
-        gap: 8px;
-        padding-top: 15px;
-    }
-
-
-    .action-cell::before {
-        display: none;
-    }
-
-
-    .delete-form {
-        display: inline;
-    }
-
-
-    .btn-edit,
-    .btn-delete {
-        padding: 8px 12px;
-    }
-
-
-    /* FORM */
-
-    .product-form {
-        padding: 18px;
-    }
-
-    .form-group input {
-        width: 100%;
-    }
-
-    .form-actions {
-        flex-direction: column;
-    }
-
-    .form-actions .btn-add,
-    .form-actions .btn-cancel,
-    .form-actions button {
+    .form-actions .btn-cancel {
         width: 100%;
     }
 }
 
 
 /* =========================================================
-   HP SANGAT KECIL
+   HP KECIL
 ========================================================= */
 
 @media (max-width: 400px) {
@@ -552,8 +821,12 @@ tbody tr:hover {
         width: 92%;
     }
 
-    h1 {
-        font-size: 22px;
+    .header-text h1 {
+        font-size: 25px;
+    }
+
+    .content h2 {
+        font-size: 20px;
     }
 
     tbody tr {
@@ -561,13 +834,17 @@ tbody tr:hover {
     }
 
     tbody td {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .btn-edit,
     .btn-delete {
-        padding: 7px 10px;
-        font-size: 13px;
+        padding: 8px 10px;
+
+        font-size: 12px;
     }
 }
 
+body {
+    background: red !important;
+}
