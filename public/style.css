@@ -10,12 +10,21 @@
 
 
 /* =========================================================
-   BODY
+   HTML & BODY
 ========================================================= */
 
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     background:
         linear-gradient(
@@ -26,6 +35,8 @@ body {
         );
 
     color: #1f2937;
+
+    overflow-x: hidden;
 }
 
 
@@ -34,7 +45,7 @@ body {
 ========================================================= */
 
 .container {
-    width: 90%;
+    width: 92%;
     max-width: 1150px;
 
     margin: 35px auto 60px;
@@ -52,28 +63,33 @@ body {
 
     gap: 25px;
 
-    padding: 32px 34px;
+    width: 100%;
 
-    margin-bottom: 28px;
-
-    border-radius: 20px;
+    padding: 30px 32px;
+    margin-bottom: 25px;
 
     background:
         linear-gradient(
             135deg,
-            #1e3a8a 0%,
-            #2563eb 55%,
-            #0891b2 100%
+            #1e3a8a,
+            #2563eb,
+            #0891b2
         );
 
+    border-radius: 18px;
+
     box-shadow:
-        0 12px 28px rgba(30, 58, 138, 0.20);
+        0 10px 28px rgba(30, 64, 175, 0.18);
 }
 
 
 /* =========================================================
    HEADER TEXT
 ========================================================= */
+
+.header-text {
+    min-width: 0;
+}
 
 .header-text h1 {
     margin-bottom: 8px;
@@ -84,27 +100,29 @@ body {
     font-weight: 700;
 
     line-height: 1.2;
+
+    word-break: break-word;
 }
 
 .header-text p {
     color: #dbeafe;
 
-    font-size: 16px;
+    font-size: 15px;
+
     line-height: 1.5;
 }
 
 
 /* =========================================================
-   BUTTON TAMBAH
+   TOMBOL TAMBAH
 ========================================================= */
 
 .btn-tambah {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    padding: 12px 20px;
+    padding: 12px 18px;
 
     background: #ffffff;
     color: #1e3a8a;
@@ -118,12 +136,13 @@ body {
 
     white-space: nowrap;
 
-    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    transition: 0.2s ease;
 }
 
 .btn-tambah:hover {
     background: #eff6ff;
-
     transform: translateY(-1px);
 }
 
@@ -133,16 +152,19 @@ body {
 ========================================================= */
 
 .content {
-    padding: 30px;
+    width: 100%;
+
+    padding: 28px 30px 30px;
 
     background: #ffffff;
 
-    border: 1px solid #dbe7f0;
-
+    border: 1px solid #dbe5ef;
     border-radius: 18px;
 
     box-shadow:
-        0 8px 24px rgba(30, 64, 175, 0.08);
+        0 6px 20px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
 }
 
 
@@ -166,23 +188,24 @@ body {
 
 .search-form {
     display: flex;
-
     align-items: center;
 
     gap: 10px;
+
+    width: 100%;
 
     margin-bottom: 24px;
 }
 
 .search-form input {
     flex: 1;
+    min-width: 0;
 
     height: 46px;
 
-    padding: 0 15px;
+    padding: 0 14px;
 
     border: 1px solid #cbd5e1;
-
     border-radius: 9px;
 
     background: #ffffff;
@@ -205,14 +228,12 @@ body {
         0 0 0 3px rgba(37, 99, 235, 0.10);
 }
 
-
 .search-form button {
     height: 46px;
 
-    padding: 0 20px;
+    padding: 0 18px;
 
     border: none;
-
     border-radius: 9px;
 
     background: #2563eb;
@@ -223,7 +244,9 @@ body {
 
     cursor: pointer;
 
-    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    transition: 0.2s ease;
 }
 
 .search-form button:hover {
@@ -232,7 +255,7 @@ body {
 
 
 /* =========================================================
-   RESET
+   RESET SEARCH
 ========================================================= */
 
 .btn-reset {
@@ -243,19 +266,23 @@ body {
 
     height: 46px;
 
-    padding: 0 18px;
-
-    border-radius: 9px;
+    padding: 0 17px;
 
     background: #e0f2fe;
     color: #0369a1;
+
+    border-radius: 9px;
 
     text-decoration: none;
 
     font-size: 14px;
     font-weight: 600;
 
-    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition: 0.2s ease;
 }
 
 .btn-reset:hover {
@@ -269,12 +296,13 @@ body {
 
 .table-wrapper {
     width: 100%;
+    max-width: 100%;
 
     overflow-x: auto;
 
-    border: 1px solid #dbe5ed;
+    border: 1px solid #dbe5ef;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
     -webkit-overflow-scrolling: touch;
 }
@@ -290,15 +318,17 @@ table {
     min-width: 950px;
 
     border-collapse: collapse;
+
+    table-layout: auto;
 }
 
 
 /* =========================================================
-   TABLE HEADER
+   HEADER TABLE
 ========================================================= */
 
 thead th {
-    padding: 16px 17px;
+    padding: 16px 15px;
 
     background:
         linear-gradient(
@@ -317,17 +347,8 @@ thead th {
     text-transform: uppercase;
 
     letter-spacing: 0.3px;
-}
 
-
-/* Sudut header */
-
-thead th:first-child {
-    border-top-left-radius: 12px;
-}
-
-thead th:last-child {
-    border-top-right-radius: 12px;
+    white-space: nowrap;
 }
 
 
@@ -336,7 +357,7 @@ thead th:last-child {
 ========================================================= */
 
 tbody td {
-    padding: 18px 17px;
+    padding: 17px 15px;
 
     background: #ffffff;
 
@@ -366,6 +387,8 @@ tbody tr:hover td {
     color: #1e293b;
 
     font-weight: 600;
+
+    word-break: break-word;
 }
 
 
@@ -388,21 +411,23 @@ tbody tr:hover td {
     align-items: center;
     justify-content: center;
 
-    padding: 9px 14px;
+    padding: 8px 13px;
 
-    margin-right: 6px;
+    margin-right: 5px;
 
     background: #fff7ed;
     color: #ea580c;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     text-decoration: none;
 
     font-size: 13px;
     font-weight: 700;
 
-    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    transition: 0.2s ease;
 }
 
 .btn-edit:hover {
@@ -411,7 +436,7 @@ tbody tr:hover td {
 
 
 /* =========================================================
-   DELETE
+   HAPUS
 ========================================================= */
 
 .btn-delete {
@@ -420,21 +445,22 @@ tbody tr:hover td {
     align-items: center;
     justify-content: center;
 
-    padding: 9px 14px;
+    padding: 8px 13px;
 
     background: #fef2f2;
     color: #dc2626;
 
     border: none;
-
-    border-radius: 8px;
+    border-radius: 7px;
 
     font-size: 13px;
     font-weight: 700;
 
     cursor: pointer;
 
-    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    transition: 0.2s ease;
 }
 
 .btn-delete:hover {
@@ -443,18 +469,17 @@ tbody tr:hover td {
 
 
 /* =========================================================
-   DELETE FORM
+   FORM HAPUS
 ========================================================= */
 
 .delete-form {
     display: inline;
-
     margin: 0;
 }
 
 
 /* =========================================================
-   EMPTY
+   DATA KOSONG
 ========================================================= */
 
 .empty {
@@ -463,8 +488,6 @@ tbody tr:hover td {
     text-align: center;
 
     color: #64748b;
-
-    font-size: 14px;
 }
 
 
@@ -480,12 +503,11 @@ tbody tr:hover td {
 
     background: #ffffff;
 
-    border: 1px solid #dbe5ed;
-
-    border-radius: 15px;
+    border: 1px solid #dbe5ef;
+    border-radius: 14px;
 
     box-shadow:
-        0 7px 22px rgba(30, 64, 175, 0.08);
+        0 6px 20px rgba(15, 23, 42, 0.06);
 }
 
 
@@ -494,7 +516,7 @@ tbody tr:hover td {
 ========================================================= */
 
 .form-group {
-    margin-bottom: 19px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
@@ -516,8 +538,7 @@ tbody tr:hover td {
     padding: 0 12px;
 
     border: 1px solid #cbd5e1;
-
-    border-radius: 9px;
+    border-radius: 8px;
 
     background: #ffffff;
 
@@ -550,23 +571,29 @@ tbody tr:hover td {
 
 
 /* =========================================================
-   BUTTON SIMPAN DALAM FORM
+   BUTTON SIMPAN
 ========================================================= */
 
 .form-actions .btn-add {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
     padding: 11px 18px;
 
     background: #2563eb;
     color: #ffffff;
 
     border: none;
-
     border-radius: 8px;
 
     font-size: 14px;
     font-weight: 700;
 
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .form-actions .btn-add:hover {
@@ -575,7 +602,7 @@ tbody tr:hover td {
 
 
 /* =========================================================
-   BATAL
+   BUTTON BATAL
 ========================================================= */
 
 .btn-cancel {
@@ -596,7 +623,7 @@ tbody tr:hover td {
     font-size: 14px;
     font-weight: 700;
 
-    transition: all 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .btn-cancel:hover {
@@ -614,7 +641,7 @@ tbody tr:hover td {
 
     margin-bottom: 20px;
 
-    padding: 15px 18px;
+    padding: 15px 17px;
 
     background: #fff1f2;
 
@@ -641,7 +668,7 @@ tbody tr:hover td {
     }
 
     .header {
-        padding: 27px;
+        padding: 26px;
     }
 
     .content {
@@ -658,25 +685,32 @@ tbody tr:hover td {
 
     .container {
         width: 94%;
+        max-width: 100%;
 
-        margin-top: 20px;
+        margin: 20px auto 40px;
     }
 
 
-    /* HEADER */
+    /* =====================================================
+       HEADER
+    ====================================================== */
 
     .header {
         flex-direction: column;
 
-        align-items: flex-start;
+        align-items: stretch;
 
-        padding: 24px;
+        gap: 16px;
 
-        border-radius: 16px;
+        width: 100%;
+
+        padding: 22px;
+
+        border-radius: 15px;
     }
 
     .header-text h1 {
-        font-size: 29px;
+        font-size: 28px;
     }
 
     .header-text p {
@@ -685,15 +719,22 @@ tbody tr:hover td {
 
     .btn-tambah {
         width: 100%;
+
+        padding: 12px;
     }
 
 
-    /* CONTENT */
+    /* =====================================================
+       CONTENT
+    ====================================================== */
 
     .content {
-        padding: 20px 16px;
+        width: 100%;
+        max-width: 100%;
 
-        border-radius: 16px;
+        padding: 20px 14px;
+
+        border-radius: 15px;
     }
 
     .content h2 {
@@ -701,102 +742,318 @@ tbody tr:hover td {
     }
 
 
-    /* SEARCH */
+    /* =====================================================
+       SEARCH
+    ====================================================== */
 
     .search-form {
         flex-direction: column;
 
         align-items: stretch;
+
+        width: 100%;
     }
 
     .search-form input,
     .search-form button,
     .btn-reset {
         width: 100%;
+        max-width: 100%;
     }
 
 
-    /* TABLE -> CARD */
+    /* =====================================================
+       TABLE WRAPPER
+    ====================================================== */
 
     .table-wrapper {
-        overflow: visible;
+        width: 100%;
+        max-width: 100%;
 
         border: none;
+
+        overflow: visible;
     }
 
-    table,
-    thead,
-    tbody,
-    tr,
-    td {
-        display: block;
 
-        width: 100%;
+    /* =====================================================
+       TABLE MOBILE
+    ====================================================== */
+
+    table {
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        max-width: 100% !important;
+
+        border-collapse: separate;
+
+        border-spacing: 0;
     }
+
 
     thead {
         display: none;
     }
 
+
+    tbody {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+    }
+
+
     tbody tr {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+
         margin-bottom: 16px;
 
-        padding: 16px;
+        padding: 15px 16px;
 
         background: #ffffff;
 
-        border: 1px solid #dbe5ed;
+        border: 1px solid #dbe5ef;
 
         border-radius: 12px;
 
         box-shadow:
-            0 4px 12px rgba(30, 64, 175, 0.07);
+            0 4px 12px rgba(15, 23, 42, 0.06);
+
+        overflow: hidden;
     }
 
+
+    /* =====================================================
+       DATA ROW
+    ====================================================== */
+
     tbody td {
-        display: flex;
+        display: grid;
+
+        grid-template-columns:
+            minmax(85px, 35%)
+            minmax(0, 65%);
 
         align-items: center;
-        justify-content: space-between;
 
-        gap: 15px;
+        column-gap: 12px;
+
+        width: 100%;
+        min-width: 0;
+
+        min-height: 42px;
 
         padding: 10px 0;
 
+        background: transparent;
+
         border-bottom: 1px solid #edf2f7;
 
+        color: #374151;
+
+        font-size: 14px;
+
+        line-height: 1.4;
+
         text-align: right;
+
+        white-space: normal;
+
+        overflow-wrap: anywhere;
+
+        word-break: break-word;
     }
+
 
     tbody td:last-child {
         border-bottom: none;
     }
 
+
+    /* =====================================================
+       LABEL DI KIRI
+    ====================================================== */
+
     tbody td::before {
         content: attr(data-label);
 
+        grid-column: 1;
+
+        min-width: 0;
+
         color: #1e3a8a;
 
-        font-size: 13px;
+        font-size: 12px;
+
         font-weight: 700;
 
+        line-height: 1.4;
+
         text-align: left;
+
+        white-space: normal;
+
+        word-break: break-word;
     }
 
-    .aksi {
+
+    /* =====================================================
+       NILAI DI KANAN
+    ====================================================== */
+
+    tbody td > * {
+        min-width: 0;
+    }
+
+
+    /* Nama Produk */
+
+    tbody td[data-label="Nama Produk"] {
+        align-items: start;
+
+        text-align: right;
+    }
+
+
+    /* Harga */
+
+    tbody td[data-label="Harga"] {
+        font-weight: 600;
+    }
+
+
+    /* Stok */
+
+    tbody td[data-label="Stok"] {
+        font-weight: 600;
+    }
+
+
+    /* Dibuat */
+
+    tbody td[data-label="Dibuat"] {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       ACTION CELL
+    ====================================================== */
+
+    tbody td.aksi {
+        display: flex;
+
+        align-items: center;
+
         justify-content: flex-end;
 
-        padding-top: 15px;
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        width: 100%;
+        min-width: 0;
+
+        min-height: auto;
+
+        padding-top: 14px;
+
+        text-align: right;
+
+        border-bottom: none;
+
+        overflow: hidden;
     }
 
-    .aksi::before {
+
+    tbody td.aksi::before {
         display: none;
     }
 
 
-    /* FORM */
+    /* =====================================================
+       BUTTON EDIT
+    ====================================================== */
+
+    .btn-edit {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        padding: 9px 12px;
+
+        margin: 0;
+
+        background: #fff7ed;
+        color: #ea580c;
+
+        border-radius: 7px;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       BUTTON HAPUS
+    ====================================================== */
+
+    .btn-delete {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        padding: 9px 12px;
+
+        background: #fef2f2;
+        color: #dc2626;
+
+        border-radius: 7px;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       DELETE FORM
+    ====================================================== */
+
+    .delete-form {
+        display: inline-flex;
+
+        flex-shrink: 0;
+
+        margin: 0;
+    }
+
+
+    /* =====================================================
+       FORM
+    ====================================================== */
 
     .product-form {
+        width: 100%;
+        max-width: 100%;
+
         padding: 20px;
     }
 
@@ -807,12 +1064,14 @@ tbody tr:hover td {
     .form-actions .btn-add,
     .form-actions .btn-cancel {
         width: 100%;
+
+        text-align: center;
     }
 }
 
 
 /* =========================================================
-   HP KECIL
+   HP SANGAT KECIL
 ========================================================= */
 
 @media (max-width: 400px) {
@@ -821,8 +1080,16 @@ tbody tr:hover td {
         width: 92%;
     }
 
+    .header {
+        padding: 20px;
+    }
+
     .header-text h1 {
         font-size: 25px;
+    }
+
+    .content {
+        padding: 18px 12px;
     }
 
     .content h2 {
@@ -830,21 +1097,31 @@ tbody tr:hover td {
     }
 
     tbody tr {
-        padding: 14px;
+        padding: 13px;
     }
 
     tbody td {
+        grid-template-columns:
+            minmax(75px, 34%)
+            minmax(0, 66%);
+
+        column-gap: 10px;
+
         font-size: 13px;
+    }
+
+    tbody td::before {
+        font-size: 11px;
+    }
+
+    tbody td[data-label="Dibuat"] {
+        font-size: 11px;
     }
 
     .btn-edit,
     .btn-delete {
         padding: 8px 10px;
 
-        font-size: 12px;
+        font-size: 11px;
     }
-}
-
-body {
-    background: red !important;
 }
